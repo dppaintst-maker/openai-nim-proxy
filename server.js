@@ -23,7 +23,7 @@ const ENABLE_THINKING_MODE = false; // Set to true to enable chat_template_kwarg
 const MODEL_MAPPING = {
   'gpt-3.5-turbo': 'nvidia/llama-3.1-nemotron-ultra-253b-v1',
   'gpt-4': 'qwen/qwen3-coder-480b-a35b-instruct',
-  'glm-4.7': 'glm-5.1',
+  'glm-4.7': 'glm-5.1':
 };
 
 // Health check endpoint
@@ -78,7 +78,7 @@ app.post('/v1/chat/completions', async (req, res) => {
         const modelLower = model.toLowerCase();
         if (modelLower.includes('gpt-4') || modelLower.includes('claude-opus') || modelLower.includes('405b')) {
           nimModel = 'meta/llama-3.1-405b-instruct';
-        } else if (modelLower.includes('claude') || modelLower.includes('gemini') || modelLower.includes('70b')) {
+        } else if (modelLower.includes('glm-4.7') || modelLower.includes('glm-5.1') || modelLower.includes('70b')) {
           nimModel = 'meta/llama-3.1-70b-instruct';
         } else {
           nimModel = 'meta/llama-3.1-8b-instruct';
